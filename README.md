@@ -1,28 +1,26 @@
 # FractualI18n
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/fractual_i18n`. To experiment with that code, run `bin/console` for an interactive prompt.
+Supports loading translation files from views folder
 
-TODO: Delete this and the text above, and describe your gem
+Example:
+app/views/something/show.html.erb
+app/views/something/show.yml
+In "show.html.erb", one can write `t(".my_key")` which will expand to translations inside "show.yml" file
+via key "something.show"
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'fractual_i18n'
+gem "fractual_i18n"
 ```
-
-And then execute:
-
-    $ bundle install
-
-Or install it yourself as:
-
-    $ gem install fractual_i18n
 
 ## Usage
 
-TODO: Write usage instructions here
+In the Rails initializer:
+
+`I18n::Backend::Simple.include(FractualI18n::Backend)`
 
 ## Development
 
@@ -32,7 +30,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/fractual_i18n.
+Bug reports and pull requests are welcome on GitHub at https://github.com/trmz/fractual_i18n.
 
 
 ## License
