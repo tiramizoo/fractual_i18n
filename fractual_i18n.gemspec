@@ -3,7 +3,7 @@ require_relative "lib/fractual_i18n/version"
 Gem::Specification.new do |spec|
   spec.name          = "fractual_i18n"
   spec.version       = FractualI18n::VERSION
-  spec.authors       = ["Wojciech Wnętrzak"]
+  spec.authors       = ["Robert Sęk", "Wojciech Wnętrzak"]
   spec.email         = ["w.wnetrzak@gmail.com"]
 
   spec.summary       = %q{Supports loading translation files from views folder}
