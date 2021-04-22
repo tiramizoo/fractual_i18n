@@ -18,7 +18,9 @@ class FractualI18n::Phrases
       keys << last_key
       keys.map! { |key| key.delete_prefix("_") } # remove underscore from partial name
 
-      content[locale.to_s] = content.fetch(locale.to_s, {}).merge(translations.dig(locale.to_s, *keys))
+      if new_content = translations.dig(locale.to_s, *keys)
+        content[locale.to_s] = content.fetch(locale.to_s, {}).merge(new_content)
+      end
 
       File.write(filename, content.to_yaml(line_width: 200))
     end
