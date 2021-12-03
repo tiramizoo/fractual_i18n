@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :fractual_i18n do
   desc "Export view translations to single file"
   task :export, [:to] => :environment do |_task, args|

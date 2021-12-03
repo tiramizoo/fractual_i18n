@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FractualI18n::Phrases
   def joined(locale:)
     original_load_path = I18n.load_path

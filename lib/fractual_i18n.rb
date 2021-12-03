@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "i18n"
 require "fractual_i18n/version"
 require "fractual_i18n/configuration"

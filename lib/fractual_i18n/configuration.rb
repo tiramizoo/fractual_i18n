@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FractualI18n::Configuration
   attr_accessor :available_locales, :fractual_paths
 

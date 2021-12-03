@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FractualI18n::Backend
   def load_yml(filename)
     if (fractual_path = FractualI18n.configuration.fractual_paths.find { |path| filename.starts_with?(path) })
