@@ -1,16 +1,30 @@
 # FractualI18n
 
-Supports loading translation files from views folder
+Co-locate Rails translation files alongside your views. Instead of maintaining a single large `config/locales/en.yml`, place small `.yml` files next to the templates they belong to. The gem automatically namespaces translation keys based on the file path.
 
-Example:
-app/views/something/show.html.erb
-app/views/something/show.yml
-In "show.html.erb", one can write `t(".my_key")` which will expand to translations inside "show.yml" file
-via key "something.show"
+## How it works
+
+Given this structure:
+
+```
+app/views/users/index.html.erb
+app/views/users/index.yml
+app/views/users/_form.html.erb
+app/views/users/_form.yml
+```
+
+And `index.yml`:
+
+```yaml
+en:
+  title: "Users"
+```
+
+The translation is accessible via `t(".title")` in `index.html.erb`, which resolves through the key `users.index.title`. Partial prefixes (underscores) are stripped automatically — `_form.yml` maps to `users.form`.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add to your Gemfile:
 
 ```ruby
 gem "fractual_i18n"
@@ -18,20 +32,25 @@ gem "fractual_i18n"
 
 ## Usage
 
-In the Rails initializer:
+Include the backend in a Rails initializer:
 
-`I18n::Backend::Simple.include(FractualI18n::Backend)`
+```ruby
+# config/initializers/fractual_i18n.rb
+I18n::Backend::Simple.include(FractualI18n::Backend)
+```
+
+Add view translation files to the I18n load path:
+
+```ruby
+# config/application.rb
+config.i18n.load_path += Dir[Rails.root.join("app/views/**/*.yml")]
+```
+
+That's it. The gem's railtie automatically detects `app/views` as a fractual path. In development, newly added `.yml` files are picked up without a server restart.
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/trmz/fractual_i18n.
-
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests.
 
 ## License
 
