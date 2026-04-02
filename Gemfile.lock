@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    fractual_i18n (0.4.0)
+    fractual_i18n (0.5.0)
       i18n
 
 GEM
@@ -29,7 +29,7 @@ DEPENDENCIES
 CHECKSUMS
   concurrent-ruby (1.3.6) sha256=6b56837e1e7e5292f9864f34b69c5a2cbc75c0cf5338f1ce9903d10fa762d5ab
   drb (2.2.3) sha256=0b00d6fdb50995fe4a45dea13663493c841112e4068656854646f418fda13373
-  fractual_i18n (0.4.0)
+  fractual_i18n (0.5.0)
   i18n (1.14.8) sha256=285778639134865c5e0f6269e0b818256017e8cde89993fdfcbfb64d088824a5
   minitest (6.0.3) sha256=88ac8a1de36c00692420e7cb3cc11a0773bbcb126aee1c249f320160a7d11411
   prism (1.9.0) sha256=7b530c6a9f92c24300014919c9dcbc055bf4cdf51ec30aed099b06cd6674ef85
