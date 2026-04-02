@@ -14,7 +14,7 @@ class FractualI18n::Phrases
     fractual_files.each do |filename|
       content = YAML.load_file(filename)
 
-      fractual_path = FractualI18n.configuration.fractual_paths.find { |path| filename.starts_with?(path) }
+      fractual_path = FractualI18n.configuration.fractual_paths.find { |path| filename.start_with?(path) }
       keys = filename.delete_prefix(fractual_path).delete_prefix("/").split("/")
       last_key = keys.pop.delete_suffix(".yml")
       keys << last_key
@@ -32,7 +32,7 @@ class FractualI18n::Phrases
 
   def fractual_files
     I18n.load_path.select do |path|
-      FractualI18n.configuration.fractual_paths.any? { |fp| path.starts_with?(fp) }
+      FractualI18n.configuration.fractual_paths.any? { |fp| path.start_with?(fp) }
     end
   end
 end
