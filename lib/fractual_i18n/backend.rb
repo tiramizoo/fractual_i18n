@@ -2,7 +2,7 @@
 
 module FractualI18n::Backend
   def load_yml(filename)
-    if (fractual_path = FractualI18n.configuration.fractual_paths.find { |path| filename.starts_with?(path) })
+    if (fractual_path = FractualI18n.configuration.fractual_paths.find { |path| filename.start_with?(path) })
       content = load_yml_file_unsafely(filename)
       keys = filename.delete_prefix(fractual_path).delete_prefix("/").split("/")
       last_key = keys.pop.delete_suffix(".yml")
