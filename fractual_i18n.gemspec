@@ -4,13 +4,13 @@ Gem::Specification.new do |spec|
   spec.name          = "fractual_i18n"
   spec.version       = FractualI18n::VERSION
   spec.authors       = ["Robert Sęk", "Wojciech Wnętrzak"]
-  spec.email         = ["w.wnetrzak@gmail.com"]
+  spec.email         = ["wojciech@wnetrzak.pl"]
 
   spec.summary       = %q{Supports loading translation files from views folder}
   spec.description   = %q{Supports loading translation files from views folder}
   spec.homepage      = "https://github.com/tiramizoo/fractual_i18n"
   spec.license       = "MIT"
-  spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
+  spec.required_ruby_version = Gem::Requirement.new(">= 3.0.0")
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/tiramizoo/fractual_i18n"
